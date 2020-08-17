@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <?php
+
+    //Time before the cache expires
+    $cacheLife = 60;
+    //Set remote URL
+    $remoteURL = 'http://data.fixer.io/api/latest?access_key=bd86b13c4f91a685545925857ea5eeb6&symbols=USD,MXN,EUR,ARS,COP,CAD,CLP&format=1';
+
+    //Set cacheName (We're assuming it's going to reside in the same directory as the caller script).
+
+    $cacheName = '_eventCache.php';
+
+    //Build the path to the cache
+    $cacheFileName = str_replace('/', '\\', dirname(__FILE__)) . '\\' . $cacheName;
+
+
+    //Create Remote Retrieval / Cache Function - Reuse is good.
+    function FN_CacheEventPage($sourceURL, $destinationFile)
+    {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $sourceURL);
+        $fp = fopen($destinationFile, 'w');
+        curl_setopt($ch, CURLOPT_FILE, $fp);
+        //curl_exec($ch);
+        curl_close($ch);
+        fclose($fp);
+        $ReturnFileContent = file_get_contents($destinationFile, FILE_USE_INCLUDE_PATH);
+        return $ReturnFileContent;
+    }
+
+    //Check to see if the file exists and ut still has Life
+
+    if (!file_exists($cacheFileName) or (time() - filemtime($cacheFileName) >= $cacheLife)) {
+        $cacheFileContent = FN_CacheEventPage($remoteURL, $cacheFileName);
+    } else {
+        // If the cache file isn't there, or is too old, build a new one!   
+        $cacheFileContent = file_get_contents($cacheFileName, FILE_USE_INCLUDE_PATH);
+    }
+    include($cacheFileName);
+    
+
+    ?>
+</body>
+
+</html>

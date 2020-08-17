@@ -1,0 +1,1936 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Donate to PETA | Donate Now | PETA</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <script language="javascript" type="text/javascript"
+        src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdn.optimizely.com/js/2806791494.js"></script>
+
+    <!--favicon -->
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="https://resources.peta.org/engaging-networks/pages/_shared/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="https://resources.peta.org/engaging-networks/pages/_shared/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="194x194"
+        href="https://resources.peta.org/engaging-networks/pages/_shared/images/favicons/favicon-194x194.png">
+    <link rel="icon" type="image/png" sizes="192x192"
+        href="https://resources.peta.org/engaging-networks/pages/_shared/images/favicons/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="https://resources.peta.org/engaging-networks/pages/_shared/images/favicons/favicon-16x16.png">
+    <link rel="manifest"
+        href="https://resources.peta.org/engaging-networks/pages/_shared/images/favicons/manifest.json">
+    <link rel="mask-icon"
+        href="https://resources.peta.org/engaging-networks/pages/_shared/images/favicons/safari-pinned-tab.svg"
+        color="#359bce">
+    <link rel="shortcut icon"
+        href="https://resources.peta.org/engaging-networks/pages/_shared/images/favicons/favicon.ico">
+    <meta name="msapplication-config"
+        content="https://resources.peta.org/engaging-networks/pages/_shared/images/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <!--end favicon -->
+
+    <!--Font Icon for Rate Converter-->
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+
+    <script>
+        if (document.location.search.indexOf("mode=DEMO") != -1)
+            document.head.insertAdjacentHTML("beforeEnd", "<meta name='robots' content='noindex' />");
+    </script>
+
+    <script src="https://use.fontawesome.com/be5da11684.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Kalam|Raleway:400,400i,600,600i" rel="stylesheet">
+    <script type="text/javascript" src="https://use.typekit.net/akq4hkn.js"></script>
+    <script type='text/javascript'
+        src='https://resources.peta.org/engaging-networks/pages/_shared/js/load-typekit.js?ver=3.7'></script>
+    <link href="https://resources.peta.org/engaging-networks/pages/peta/styles/magnific.min.css?v=1.0.0"
+        rel="stylesheet">
+    <!--<link href="https://resources.peta.org/engaging-networks/pages/_shared/theme-donation-background-image/styles/foundation-overwrites.css" rel="stylesheet" type="text/css" media="all">-->
+    <link
+        href="https://resources.peta.org/engaging-networks/pages/_shared/theme-donation-background-image/styles/foundation.min.css"
+        rel="stylesheet" type="text/css" media="all">
+    <link
+        href="https://resources.peta.org/engaging-networks/pages/_shared/theme-donation-background-image/styles/foundation-components-styles.css"
+        rel="stylesheet" type="text/css" media="all">
+    <link href="https://resources.peta.org/engaging-networks/pages/peta/styles/footer-simple.css" rel="stylesheet"
+        type="text/css" />
+    <link
+        href="https://resources.peta.org/engaging-networks/pages/_shared/theme-donation-background-image/styles/en-page-custom-us.css"
+        rel="stylesheet" type="text/css" />
+    <link
+        href="https://resources.peta.org/engaging-networks/pages/peta/styles/donation-background-image-theme-styles.css"
+        rel="stylesheet" type="text/css" />
+    <link href="https://resources.peta.org/engaging-networks/pages/peta/styles/hidden-form-content.css" rel="stylesheet"
+        type="text/css" />
+    <link href="https://resources.peta.org/engaging-networks/pages/_shared/styles/applepay.css" rel="stylesheet"
+        type="text/css" />
+
+    <!-- BEGIN APPLE PAY -->
+    <script type="text/javascript">
+        var merchantIdentifier = 'merchant.com.petamem.prod';
+        var merchantDomainName = 'support.peta.org';
+        var merchantDisplayName = 'PETA';
+
+        // Session
+        var merchantSessionIdentifier = 'fe16f67186f9486ab8313b8236bd36b1-server50011';
+        var merchantNonce = 'fake-nonce';
+        var merchantEpochTimestamp = '1467051059';
+        var merchantSignature = 'fake-signature';
+
+        // Validation
+        var merchantCountryCode = 'US';
+        var merchantCurrencyCode = 'USD';
+        var merchantSupportedNetworks = ['visa', 'masterCard', 'amex', 'discover'];
+        var merchantCapabilities = ['supports3DS'];
+        var merchantTotalLabel = '';
+    </script>
+    <!-- END APPLE PAY -->
+
+    <!--START GOOGLE ANALYTICS-->
+    <script language="javascript" type="text/javascript"
+        src="https://secure.mediapeta.com/scripts/googleAnalytics/global/ga_constants.js"></script>
+    <script language="javascript" type="text/javascript"
+        src="https://secure.mediapeta.com/scripts/googleAnalytics/petaUS/peta/gaBase.js"></script>
+    <!-- END GOOGLE ANALYTICS -->
+
+    <!-- Start Data Layer -->
+    <script type="text/javascript">
+        // <![CDATA[
+        //Donation TY page
+        function checkIsSent(ref) {
+            var cookiename = 'gaSaleSent_' + ref;
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1);
+                if (c.indexOf(cookiename + '=') != -1) {
+                    return true;
+                }
+            }
+            var d = new Date();
+            d.setTime(d.getTime() + (90 * 24 * 60 * 60 * 1000));
+            var expires = "expires=" + d.toGMTString();
+            document.cookie = cookiename + '=1; ' + expires;
+
+            return false;
+        }
+
+        ! function (w, d, e, u, m, t, s) {
+            if (w.care2Targeting) return;
+            m = w.care2Targeting = function (params) {
+                m.callMethod ? m.callMethod.apply(m, [params]) : m.queue.push(params)
+            };
+            m.push = m;
+            m.version = '1.0';
+            m.queue = [];
+            t = d.createElement(e);
+            t.async = !0;
+            t.src = u;
+            s = d.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s);
+        }(window, document, 'script', '//dingo.care2.com/targeting/pixel.js');
+
+        jQuery(document).ready(function () {
+            if (window.location.href.toLowerCase().indexOf('/donate/2') > 0 || window.location.href
+                .toLowerCase()
+                .indexOf('/donation/2') > 0) {
+                var transactionID = '{receipt_data~txId}';
+                var isRepeating = false;
+
+                if (!checkIsSent(transactionID)) {
+                    var transactionType = pageJson.transactionType;
+
+                    if (transactionType == 'FCS' || transactionType == 'FBS' || transactionType == 'ACS') {
+                        transactionType = 'Single Gift';
+                        isRepeating = false;
+                    } else if (transactionType == 'FCR' || transactionType == 'FUR' || transactionType ==
+                        'FBR' ||
+                        transactionType == 'ACR') {
+                        transactionType = 'Recurring Gift';
+                        isRepeating = true;
+                    } else if (transactionType == 'FIM') {
+                        transactionType = 'Memorial Gift';
+                        isRepeating = false;
+                    }
+
+                    (function () {
+                        dataLayer = dataLayer || [];
+                        dataLayer.push({
+                            'transactionId': '{receipt_data~txId}',
+                            'transactionTotal': +('{receipt_data~amount}'.replace(/(\$|,)/g, '')),
+                            'transactionProducts': [{
+                                'name': transactionType,
+                                'sku': 'id:' + pageJson.campaignPageId + ' ' + document
+                                    .title,
+                                'price': +('{receipt_data~amount}'.replace(/(\$|,)/g, '')),
+                                'quantity': 1
+                            }]
+                        });
+                    })();
+
+                    care2Targeting({
+                        clientid: '154',
+                        email: '{user_data~EMail Address}',
+                        value: '{receipt_data~amount}'.replace('$', ''),
+                        repeating: isRepeating
+                    });
+                }
+            }
+        });
+    </script>
+    <!-- End Data Layer -->
+
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-K76L3F');
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <meta name="title" content="ALL Animals Deserve Our Love, Protection, and Respect" />
+    <meta property="og:title" content="ALL Animals Deserve Our Love, Protection, and Respect" />
+    <meta property="og:description"
+        content="I just donated to PETA to power its vital work for animals—will you join me?" />
+    <meta name="description" content="I just donated to PETA to power its vital work for animals—will you join me?" />
+    <meta property="og:image" content="http://www.mediapeta.com/EN/peta/images/social-media-thumbnail-peta-v02.jpg" />
+    <link rel="canonical" href="https://support.peta.org/page/1828/donate/1?locale=en-US" />
+    <meta property="og:url" content="https://support.peta.org/page/1828/donate/1?locale=en-US" />
+    <link rel="image_src" href="http://www.mediapeta.com/EN/peta/images/social-media-thumbnail-peta-v02.jpg" />
+    <link href='https://support.peta.org/ea-demo/frontend/pbAssets/build/css/enPage.css?v=3.58.0' rel='stylesheet'
+        type='text/css' />
+    <script>
+        var pageJson = {
+            "clientId": 10003,
+            "campaignId": 1262,
+            "appealCode": "IXXXWBXXXXG",
+            "pageNumber": 1,
+            "pageType": "donation",
+            "campaignPageId": 1828,
+            "pageCount": 2,
+            "pageName": "PE DON EVR GEN 2017-06 Canonical General WEB Donation IXXXWBXXXXG (ERodriguez)",
+            "externalReference7": "Navigation::top donate now button",
+            "externalReference8": "GEN::devo::EN::Donation::PE Donate to PETA | Donate Now | GEN Canonical",
+            "externalReference9": "peta",
+            "redirectPresent": false,
+            "giftProcess": false,
+            "locale": "en-US"
+        };
+    </script>
+    <script src='https://support.peta.org/page/1828/campaigner/0/pagedata.js?locale=en-US'></script>
+    <script src='https://support.peta.org/ea-demo/frontend/pbAssets/build/js/enPage.js?v=3.58.0'></script>
+</head>
+
+<body class="mobile redesign-2016">
+    <form method="post" action="https://support.peta.org/page/1828/donate/2" class="en__component en__component--page">
+        <input type="hidden" name="hidden" class="en__hiddenFields" value="">
+        <input type="hidden" name="sessionId" value="fe16f67186f9486ab8313b8236bd36b1-server50011">
+        <input type="hidden" name="gatewaykey" value="">
+        <input type="hidden" name="gatewayaccountid" value="">
+        <input type="hidden" name="gatewaymode" value="">
+
+
+        <ul class="en__errorList">
+        </ul>
+
+        <div class="en__component en__component--row en__component--row--1">
+            <div class="en__component en__component en__component--column en__component--column--1">
+                <div class="en__component en__component--copyblock" style="
+
+
+
+
+
+
+
+">
+                    <!-- begin top-links -->
+                    <div class="top-links sticky">
+                        <nav class="top-bar">
+                            <div class="mobile-site-overlay">&nbsp;</div>
+
+                            <div class="logo"><a class="logo-img" href="https://www.peta.org/"><img
+                                        src="https://resources.peta.org/engaging-networks/pages/_shared/theme-donation-background-image/images/circular-logo-reversed.png" />
+                                </a> <em> <span>People for the Ethical Treatment of Animals</span> </em></div>
+
+                            <section class="top-bar-section">
+                                <!-- Menu modified by MAJpage Menu Class Extender -->
+                                <ul class="top-bar-menu right" id="menu-top-bar-sites-2">
+                                    <li class="parent-menu-item even-menu-item menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children has-dropdown has-dropdown menu-item-826"
+                                        id="menu-item-826"><a accesskey="y"
+                                            href="https://www.peta.org/donate/ways-to-support-peta/"
+                                            title="Support PETA">Support PETA</a>
+
+                                        <ul class="sub-menu dropdown">
+                                            <li class="first-menu-item odd-menu-item menu-item menu-item-type-custom menu-item-object-custom menu-item-827"
+                                                id="menu-item-827"><a data-campaign-id="2141"
+                                                    data-name="become-a-member" data-type="campaignpage_url_pb"
+                                                    href="https://support.peta.org/page/2141/donate/1?en_txn7=Navigation::DON-Header-Support-PETA-Dropdown&amp;supporter.appealCode=IXXXWBXXXXM"
+                                                    title="Become a Member">Become a Member</a></li>
+                                            <li class="even-menu-item menu-item menu-item-type-custom menu-item-object-custom menu-item-828"
+                                                id="menu-item-828"><a data-campaign-id="6064" data-name="monthly"
+                                                    data-type="external_url_pb"
+                                                    href="https://support.peta.org/page/6064/donate/1?en_txn7=Navigation::DON-Header-Support-PETA-Dropdown&amp;supporter.appealCode=IXXXWBXXXXG"
+                                                    title="Make a Monthly Gift">Make a Monthly Gift</a></li>
+                                            <li class="odd-menu-item menu-item menu-item-type-custom menu-item-object-custom menu-item-831709"
+                                                id="menu-item-831709"><a data-name="True-Friends"
+                                                    data-type="external_url_pb"
+                                                    href="https://us-p2p.netdonor.net/23/true-friends-memorials/?en_txn7=Navigation::DON-Header-Support-PETA-Dropdown">Make
+                                                    a Memorial Gift</a></li>
+                                            <li class="odd-menu-item menu-item menu-item-type-custom menu-item-object-custom menu-item-962909"
+                                                id="menu-item-962909"><a
+                                                    href="https://presents.peta.org/?en_txn7=Navigation::Support-PETA-dropdown">Make
+                                                    an Honorary Gift</a></li>
+                                            <li class="odd-menu-item menu-item menu-item-type-post_type menu-item-object-donate menu-item-143349"
+                                                id="menu-item-143349"><a
+                                                    href="https://www.peta.org/donate/planned-giving/"
+                                                    title="Planned Giving">Planned Giving</a></li>
+                                            <li class="odd-menu-item menu-item menu-item-type-custom menu-item-object-custom menu-item-831710"
+                                                id="menu-item-831710"><a
+                                                    href="https://shop.peta.org/gifts-that-give/annual-and-gift-memberships.html">Gift
+                                                    Memberships</a></li>
+                                            <li
+                                                class="odd-menu-item menu-item menu-item-type-post_type menu-item-object-donate menu-item-143349">
+                                                <a href="https://www.peta.org/donate/vanguard/">What Is the Vanguard
+                                                    Society?</a></li>
+                                            <li
+                                                class="odd-menu-item menu-item menu-item-type-post_type menu-item-object-donate menu-item-143349">
+                                                <a href="https://www.peta.org/donate/membership-services/">Membership
+                                                    Services</a></li>
+                                            <li class="last-menu-item even-menu-item menu-item menu-item-type-custom menu-item-object-custom menu-item-644014"
+                                                id="menu-item-644014"><a
+                                                    href="https://www.peta.org/donate/ways-to-support-peta/"
+                                                    title="More Ways to Support PETA">More Ways</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </section>
+                        </nav>
+                    </div>
+                    <!-- end top-links -->
+
+
+                </div>
+            </div>
+        </div>
+        <div class="en__component en__component--row en__component--row--1">
+            <div class="en__component en__component en__component--column en__component--column--1">
+                <div class="en__component en__component--copyblock" style="
+
+
+
+
+
+
+
+">
+                    <h1>Donate Now</h1>
+
+                    <div id="h1_text" style="display: none;">
+                        <p><kbd>H1 Title goes here</kbd></p>
+                    </div>
+                    <style type="text/css">
+                        /* Add styles */
+                    </style>
+                    <script>
+                        if (!window.EngagingNetworks) {
+                            document.getElementById("h1_text").style.display = "block";
+                        }
+                    </script>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="en__component en__component--row en__component--row--1">
+            <div class="en__component en__component en__component--column en__component--column--1">
+                <div class="en__component en__component--copyblock" style="
+
+
+
+
+
+
+
+">
+                    <div id="mobile_img" style="display: none;">
+                        <p><kbd>PE Background Image Code</kbd></p>
+                    </div>
+                    <style type="text/css">
+                        form.en__component:first-of-type::before {
+                            background: #FFF url('https://resources.peta.org/engaging-networks/pages/_shared/theme-donation-background-image/images/donation-background-default.jpg') no-repeat;
+                            background-size: cover !important;
+                            background-position: 50% !important;
+                        }
+
+                        /* B A C K G R O U N D  -  V E R S I O N   1 */
+                        .backgound-v1::before {
+                            background: #FFF url('https://acb0a5d73b67fccd4bbe-c2d8138f0ea10a18dd4c43ec3aa4240a.ssl.cf5.rackcdn.com/10003/ACOM_2017-11_Dog_WDH-DON-Large-BG-V3_NC_ERodriguez.jpg') no-repeat !important;
+                        }
+
+                        .mobile-only-v1 {
+                            background: #FFF url('https://acb0a5d73b67fccd4bbe-c2d8138f0ea10a18dd4c43ec3aa4240a.ssl.cf5.rackcdn.com/10003/ACOM_2017-11_Dog_WDH-DON-Large-BG-V3_NC_ERodriguez.jpg') no-repeat !important;
+                        }
+
+                        /* B A C K G R O U N D  -  V E R S I O N   2 */
+                        .backgound-v2::before {
+                            background: #FFF url('https://acb0a5d73b67fccd4bbe-c2d8138f0ea10a18dd4c43ec3aa4240a.ssl.cf5.rackcdn.com/10003/ACOM_KLIP_2017-07_Dog-DON-BACK-V1_NC_ERodriguez.jpg') no-repeat !important;
+                        }
+
+                        .mobile-only-v2 {
+                            background: #FFF url('https://acb0a5d73b67fccd4bbe-c2d8138f0ea10a18dd4c43ec3aa4240a.ssl.cf5.rackcdn.com/10003/ACOM_KLIP_2017-07_Dog-DON-BACK-V1_NC_ERodriguez.jpg') no-repeat !important;
+                        }
+                    </style>
+                    <script>
+                        if (!window.EngagingNetworks) {
+                            document.getElementById("mobile_img").style.display = "block";
+                        }
+                    </script>
+                    <p><img alt="Donate Now" class="mobile-only"
+                            src="https://resources.peta.org/engaging-networks/pages/_shared/theme-donation-background-image/images/donation-image-default.jpg" />
+                    </p>
+
+
+
+                </div>
+                <div class="en__component en__component--copyblock" style="
+
+
+
+
+
+
+
+">
+                    <p>PETA supporters are making the world a more compassionate place for animals, and your gift today
+                        can help. Giving as little as $5 can provide a neglected dog with a week&#39;s worth of food,
+                        and a gift of $350 can help supply PETA investigators with the resources that they need to
+                        expose&mdash;and ultimately stop&mdash;animal abuse wherever it occurs.</p>
+
+                    <p><strong>You can be confident that your contribution to PETA will go straight to work helping
+                            animals</strong>&mdash;by ending horrifying experiments, funding investigations to expose
+                        cruelty on massive farms, stopping animals from being abused and killed for their skin, rescuing
+                        dogs and cats from neglect, and much more.</p>
+
+                    <p><strong>Together, we&#39;re making the world a better place for all beings. </strong>Please, give
+                        what you can today.</p>
+                    <!--<p>We need your financial support in order to put a stop to cruelty to animals.</p>
+
+<p>Together, we can make the world a better place for all beings. Your donation will go to work instantly to help animals suffering and dying in laboratories,&nbsp;on massive farms, in the fur industry, and in circuses and other forms of entertainment.</p>
+
+<p>An annual donation of $16 or more entitles you to many member benefits. Members receive a free year&#39;s subscription to our lively magazine&nbsp;<em>PETA Global</em>, which is packed full of the latest news, delicious vegan recipes, and easy tips for stopping animal suffering in your own community.</p> -->
+
+
+                </div>
+            </div>
+        </div>
+        <div class="en__component en__component--row en__component--row--1">
+            <div class="en__component en__component en__component--column en__component--column--1">
+                <div class="en__component en__component--formblock" style="">
+
+
+                    <input type="hidden" class="en__field__input en__field__input--hidden" name="supporter.appealCode"
+                        value="IXXXWBXXXXG" />
+
+
+
+
+                </div>
+                <div class="en__component en__component--codeblock">
+                    <h3 class="form_header">1. Select <span id="title_gift_type"></span>Gift Amount</h3>
+                    <style>
+                        /* Add styles as needed here */
+                    </style>
+                    <script>
+                        function changeTitleGiftAmount() {
+                            var localMonthlyRadioValue = "Y";
+                            if (typeof monthlyRadioValue != "undefined")
+                                localMonthlyRadioValue = monthlyRadioValue;
+
+                            if (jQuery("input.en__field__input--radio[name='transaction.recurrpay'][value='" +
+                                    localMonthlyRadioValue + "']:checked").length ||
+                                jQuery("input.en__field__input--hidden[name='transaction.recurrpay'][value='" +
+                                    localMonthlyRadioValue + "']").length ||
+                                jQuery("input.en__field__input--checkbox[name='transaction.recurrpay'][value='" +
+                                    localMonthlyRadioValue + "']:checked").length)
+                                jQuery("#title_gift_type").empty().text("Monthly ");
+                            else
+                                jQuery("#title_gift_type").empty().text("One-Time ");
+                        }
+                        jQuery(document).ready(
+                            function () {
+                                changeTitleGiftAmount();
+                                jQuery("input[name='transaction.recurrpay']").on("change", changeTitleGiftAmount);
+                            });
+                        /* Add scripts as needed here */
+                    </script>
+                </div>
+                <div class="en__component en__component--formblock" style="">
+
+
+                    <div class="en__field en__field--radio en__field--3863 en__field--recurrpay en__mandatory">
+                        <label for="en__field_transaction_recurrpay" class="en__field__label" style="">Recurring
+                            Payment</label>
+                        <div class="en__field__element en__field__element--radio
+">
+                            <div class="en__field__item">
+                                <input id="en__field_transaction_recurrpay0" checked type="radio"
+                                    class="en__field__input en__field__input--radio" value="N"
+                                    name="transaction.recurrpay" />
+                                <label for="en__field_transaction_recurrpay0"
+                                    class="en__field__label en__field__label--item">One-Time</label>
+                            </div>
+                            <div class="en__field__item">
+                                <input id="en__field_transaction_recurrpay1" type="radio"
+                                    class="en__field__input en__field__input--radio" value="Y"
+                                    name="transaction.recurrpay" />
+                                <label for="en__field_transaction_recurrpay1"
+                                    class="en__field__label en__field__label--item">Monthly</label>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="en__component en__component--copyblock" style="
+
+
+
+
+
+
+
+">
+                    <div class="repeat_text is_monthly_element">
+                        <p>This monthly gift will be matched with an extra $75 from a generous foundation supporting
+                            PETA!</p>
+                    </div>
+                    <!--Repeat this gift every month to make the biggest impact for animals!-->
+                    <!--Repeat this gift every month and we&#39;ll receive an extra $75 from a generous foundation supporting PETA!-->
+
+
+                </div>
+
+                <div class="en__component en__component--formblock" style="">
+
+
+                    <div
+                        class="en__field en__field--radio en__field--withOther en__field--2136 en__field--donationAmt en__mandatory">
+                        <label class="en__field__label" style="">Donation Amount</label>
+                        <div class="en__field__element en__field__element--radio">
+                            <div class="en__field__item">
+                                <input type="radio" class="en__field__input en__field__input--radio" value="25"
+                                    name="transaction.donationAmt" id="en__field_transaction_donationAmt0" />
+                                <label class="en__field__label en__field__label--item"
+                                    for="en__field_transaction_donationAmt0">$25</label>
+                            </div>
+                            <div class="en__field__item">
+                                <input checked type="radio" class="en__field__input en__field__input--radio" value="35"
+                                    name="transaction.donationAmt" id="en__field_transaction_donationAmt1" />
+                                <label class="en__field__label en__field__label--item"
+                                    for="en__field_transaction_donationAmt1">$35</label>
+                            </div>
+                            <div class="en__field__item">
+                                <input type="radio" class="en__field__input en__field__input--radio" value="50"
+                                    name="transaction.donationAmt" id="en__field_transaction_donationAmt2" />
+                                <label class="en__field__label en__field__label--item"
+                                    for="en__field_transaction_donationAmt2">$50</label>
+                            </div>
+                            <div class="en__field__item">
+                                <input type="radio" class="en__field__input en__field__input--radio" value="100"
+                                    name="transaction.donationAmt" id="en__field_transaction_donationAmt3" />
+                                <label class="en__field__label en__field__label--item"
+                                    for="en__field_transaction_donationAmt3">$100</label>
+                            </div>
+                            <div class="en__field__item">
+                                <input type="radio" class="en__field__input en__field__input--radio" value=""
+                                    name="transaction.donationAmt" id="en__field_transaction_donationAmt4" />
+                                <label class="en__field__label en__field__label--item"
+                                    for="en__field_transaction_donationAmt4">Other</label>
+                            </div>
+                            <div class="en__field__item en__field__item--other en__field__item--hidden">
+                                <input class="en__field__input en__field__input--other" type="text"
+                                    name="transaction.donationAmt.other" value="" />
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" class="en__field__input en__field__input--hidden" name="transaction.recurrday"
+                        value="" />
+
+                    <input type="hidden" class="en__field__input en__field__input--hidden" name="transaction.recurrfreq"
+                        value="MONTHLY" />
+
+                    <input type="hidden" class="en__field__input en__field__input--hidden" name="supporter.NOT_TAGGED_2"
+                        value="" />
+
+
+
+
+                </div>
+                <div class="en__component en__component--copyblock" style="
+
+
+
+
+
+
+
+">
+                    <h3 class="form_header">2. Your Information</h3>
+
+
+
+                </div>
+                <div class="en__component en__component--formblock en__donation--billing--info" style="">
+
+
+                    <div class="en__field en__field--text en__field--2091 en__field--firstName en__mandatory">
+                        <label for="en__field_supporter_firstName" class="en__field__label" style="">First Name</label>
+                        <div class="en__field__element en__field__element--text">
+                            <input id="en__field_supporter_firstName" type="text"
+                                class="en__field__input en__field__input--text" name="supporter.firstName" value="" />
+                        </div>
+                    </div>
+                    <div class="en__field en__field--text en__field--2092 en__field--lastName en__mandatory">
+                        <label for="en__field_supporter_lastName" class="en__field__label" style="">Last Name</label>
+                        <div class="en__field__element en__field__element--text">
+                            <input id="en__field_supporter_lastName" type="text"
+                                class="en__field__input en__field__input--text" name="supporter.lastName" value="" />
+                        </div>
+                    </div>
+                    <div class="en__field en__field--text en__field--2094 en__field--address1 en__mandatory">
+                        <label for="en__field_supporter_address1" class="en__field__label" style="">Street
+                            Address</label>
+                        <div class="en__field__element en__field__element--text">
+                            <input id="en__field_supporter_address1" type="text"
+                                class="en__field__input en__field__input--text" name="supporter.address1" value="" />
+                        </div>
+                    </div>
+                    <div class="en__field en__field--text en__field--2095 en__field--address2">
+                        <label for="en__field_supporter_address2" class="en__field__label" style="">Street Address (Line
+                            2)</label>
+                        <div class="en__field__element en__field__element--text">
+                            <input id="en__field_supporter_address2" type="text"
+                                class="en__field__input en__field__input--text" name="supporter.address2" value="" />
+                        </div>
+                    </div>
+                    <div class="en__field en__field--select en__field--2130 en__field--country en__mandatory">
+                        <label for="en__field_supporter_country" class="en__field__label"
+                            style="">Country/Region</label>
+                        <div class="en__field__element en__field__element--select">
+                            <select id="en__field_supporter_country" class="en__field__input en__field__input--select"
+                                name="supporter.country">
+                                <option value="US">United States</option>
+                                <option value="CA">Canada</option>
+                                <option value="MX">Mexico</option>
+                                <option value="AU">Australia</option>
+                                <option value="GB">United Kingdom</option>
+                                <option value="AF">Afghanistan</option>
+                                <option value="AX">Åland Islands</option>
+                                <option value="AL">Albania</option>
+                                <option value="DZ">Algeria</option>
+                                <option value="AS">American Samoa</option>
+                                <option value="AD">Andorra</option>
+                                <option value="AO">Angola</option>
+                                <option value="AI">Anguilla</option>
+                                <option value="AQ">Antarctica</option>
+                                <option value="AG">Antigua and Barbuda</option>
+                                <option value="AR">Argentina</option>
+                                <option value="AM">Armenia</option>
+                                <option value="AW">Aruba</option>
+                                <option value="AC">Ascension Island</option>
+                                <option value="AU">Australia</option>
+                                <option value="AT">Austria</option>
+                                <option value="AZ">Azerbaijan</option>
+                                <option value="AP">Azores</option>
+                                <option value="BS">Bahamas</option>
+                                <option value="BH">Bahrain</option>
+                                <option value="BD">Bangladesh</option>
+                                <option value="BB">Barbados</option>
+                                <option value="BY">Belarus</option>
+                                <option value="BE">Belgium</option>
+                                <option value="BZ">Belize</option>
+                                <option value="BJ">Benin</option>
+                                <option value="BM">Bermuda</option>
+                                <option value="BT">Bhutan</option>
+                                <option value="BO">Bolivia</option>
+                                <option value="BL">Bonaire</option>
+                                <option value="BA">Bosnia and Herzegovina</option>
+                                <option value="BW">Botswana</option>
+                                <option value="BV">Bouvet Island</option>
+                                <option value="BR">Brazil</option>
+                                <option value="IO">British Indian Ocean Territory</option>
+                                <option value="VG">British Virgin Islands</option>
+                                <option value="BN">Brunei Darussalam</option>
+                                <option value="BG">Bulgaria</option>
+                                <option value="BF">Burkina Faso</option>
+                                <option value="BI">Burundi</option>
+                                <option value="KH">Cambodia</option>
+                                <option value="CM">Cameroon</option>
+                                <option value="CA">Canada</option>
+                                <option value="IC">Canary Islands</option>
+                                <option value="CV">Cape Verde</option>
+                                <option value="BQ">Caribbean Netherlands</option>
+                                <option value="KY">Cayman Islands</option>
+                                <option value="CF">Central African Republic</option>
+                                <option value="TD">Chad</option>
+                                <option value="CD">Channel Islands</option>
+                                <option value="CL">Chile</option>
+                                <option value="CN">China</option>
+                                <option value="CX">Christmas Island</option>
+                                <option value="CC">Cocos (Keeling) Islands</option>
+                                <option value="CO">Colombia</option>
+                                <option value="KM">Comoros</option>
+                                <option value="CG">Congo</option>
+                                <option value="CK">Cook Islands</option>
+                                <option value="CR">Costa Rica</option>
+                                <option value="HR">Croatia</option>
+                                <option value="CU">Cuba</option>
+                                <option value="CW">Curacao</option>
+                                <option value="CY">Cyprus</option>
+                                <option value="CZ">Czech Republic</option>
+                                <option value="ZP">Democratic Republic of the Congo</option>
+                                <option value="DK">Denmark</option>
+                                <option value="DJ">Djibouti</option>
+                                <option value="DM">Dominica</option>
+                                <option value="DO">Dominican Republic</option>
+                                <option value="TP">East Timor</option>
+                                <option value="EC">Ecuador</option>
+                                <option value="EG">Egypt</option>
+                                <option value="SV">El Salvador</option>
+                                <option value="GQ">Equatorial Guinea</option>
+                                <option value="ER">Eritrea</option>
+                                <option value="EE">Estonia</option>
+                                <option value="ET">Ethiopia</option>
+                                <option value="FO">Faroe Islands</option>
+                                <option value="FK">Falkland Islands</option>
+                                <option value="FJ">Fiji</option>
+                                <option value="FI">Finland</option>
+                                <option value="FR">France</option>
+                                <option value="GF">French Guiana</option>
+                                <option value="PF">French Polynesia</option>
+                                <option value="TF">French Southern Territories</option>
+                                <option value="GA">Gabon</option>
+                                <option value="GM">Gambia</option>
+                                <option value="GE">Georgia</option>
+                                <option value="DE">Germany</option>
+                                <option value="GH">Ghana</option>
+                                <option value="GI">Gibraltar</option>
+                                <option value="GR">Greece</option>
+                                <option value="GL">Greenland</option>
+                                <option value="GD">Grenada</option>
+                                <option value="GP">Guadeloupe</option>
+                                <option value="GU">Guam</option>
+                                <option value="GT">Guatemala</option>
+                                <option value="GG">Guernsey</option>
+                                <option value="GN">Guinea</option>
+                                <option value="GW">Guinea-Bissau</option>
+                                <option value="GY">Guyana</option>
+                                <option value="HT">Haiti</option>
+                                <option value="HM">Heard Island and McDonald Islands</option>
+                                <option value="HN">Honduras</option>
+                                <option value="HK">Hong Kong</option>
+                                <option value="HU">Hungary</option>
+                                <option value="IS">Iceland</option>
+                                <option value="IN">India</option>
+                                <option value="ID">Indonesia</option>
+                                <option value="IR">Iran</option>
+                                <option value="IQ">Iraq</option>
+                                <option value="IE">Ireland</option>
+                                <option value="IM">Isle of Man</option>
+                                <option value="IL">Israel</option>
+                                <option value="IT">Italy</option>
+                                <option value="CI">Ivory Coast</option>
+                                <option value="JM">Jamaica</option>
+                                <option value="JP">Japan</option>
+                                <option value="JE">Jersey</option>
+                                <option value="JO">Jordan</option>
+                                <option value="KZ">Kazakhstan</option>
+                                <option value="KE">Kenya</option>
+                                <option value="KI">Kiribati</option>
+                                <option value="KO">Kosrae</option>
+                                <option value="KW">Kuwait</option>
+                                <option value="KG">Kyrgyzstan</option>
+                                <option value="LA">Laos</option>
+                                <option value="LV">Latvia</option>
+                                <option value="LB">Lebanon</option>
+                                <option value="LS">Lesotho</option>
+                                <option value="LR">Liberia</option>
+                                <option value="LY">Libya</option>
+                                <option value="LI">Liechtenstein</option>
+                                <option value="LT">Lithuania</option>
+                                <option value="LU">Luxembourg</option>
+                                <option value="MO">Macau</option>
+                                <option value="MK">Macedonia</option>
+                                <option value="MG">Madagascar</option>
+                                <option value="MW">Malawi</option>
+                                <option value="MY">Malaysia</option>
+                                <option value="MV">Maldives</option>
+                                <option value="ML">Mali</option>
+                                <option value="MT">Malta</option>
+                                <option value="MH">Marshall Islands</option>
+                                <option value="MQ">Martinique</option>
+                                <option value="MR">Mauritania</option>
+                                <option value="MU">Mauritius</option>
+                                <option value="YT">Mayotte</option>
+                                <option value="MX">Mexico</option>
+                                <option value="FM">Micronesia</option>
+                                <option value="MD">Moldova</option>
+                                <option value="MC">Monaco</option>
+                                <option value="MN">Mongolia</option>
+                                <option value="ME">Montenegro</option>
+                                <option value="MS">Montserrat</option>
+                                <option value="MA">Morocco</option>
+                                <option value="MZ">Mozambique</option>
+                                <option value="MM">Myanmar</option>
+                                <option value="NA">Namibia</option>
+                                <option value="NR">Nauru</option>
+                                <option value="NP">Nepal</option>
+                                <option value="NL">Netherlands</option>
+                                <option value="NC">New Caledonia</option>
+                                <option value="NZ">New Zealand</option>
+                                <option value="NI">Nicaragua</option>
+                                <option value="NE">Niger</option>
+                                <option value="NG">Nigeria</option>
+                                <option value="NU">Niue</option>
+                                <option value="NF">Norfolk Island</option>
+                                <option value="KP">North Korea</option>
+                                <option value="MP">Northern Mariana Islands</option>
+                                <option value="NO">Norway</option>
+                                <option value="OM">Oman</option>
+                                <option value="PK">Pakistan</option>
+                                <option value="PW">Palau</option>
+                                <option value="PS">Palestinian Territory</option>
+                                <option value="PA">Panama</option>
+                                <option value="PG">Papua New Guinea</option>
+                                <option value="PY">Paraguay</option>
+                                <option value="PE">Peru</option>
+                                <option value="PH">Philippines</option>
+                                <option value="PN">Pitcairn</option>
+                                <option value="PL">Poland</option>
+                                <option value="PO">Ponape</option>
+                                <option value="PT">Portugal</option>
+                                <option value="PR">Puerto Rico</option>
+                                <option value="QA">Qatar</option>
+                                <option value="RE">Reunion</option>
+                                <option value="RO">Romania</option>
+                                <option value="RT">Rota</option>
+                                <option value="RU">Russian Federation</option>
+                                <option value="RW">Rwanda</option>
+                                <option value="KN">Saint Kitts and Nevis</option>
+                                <option value="LC">Saint Lucia</option>
+                                <option value="VC">Saint Vincent and the Grenadines</option>
+                                <option value="SP">Saipan</option>
+                                <option value="WS">Samoa</option>
+                                <option value="SM">San Marino</option>
+                                <option value="ST">Sao Tome and Principe</option>
+                                <option value="SA">Saudi Arabia</option>
+                                <option value="SN">Senegal</option>
+                                <option value="RS">Serbia</option>
+                                <option value="SC">Seychelles</option>
+                                <option value="SL">Sierra Leone</option>
+                                <option value="SG">Singapore</option>
+                                <option value="SK">Slovak Republic</option>
+                                <option value="SI">Slovenia</option>
+                                <option value="SB">Solomon Islands</option>
+                                <option value="SO">Somalia</option>
+                                <option value="ZA">South Africa</option>
+                                <option value="GS">South Georgia and South Sandwich Islands.</option>
+                                <option value="KR">South Korea</option>
+                                <option value="SS">South Sudan</option>
+                                <option value="ES">Spain</option>
+                                <option value="LK">Sri Lanka</option>
+                                <option value="NT">St. Barthelemy</option>
+                                <option value="SW">St. Christopher</option>
+                                <option value="EU">St. Eustatius</option>
+                                <option value="SH">St. Helena</option>
+                                <option value="SX">St. Maarten</option>
+                                <option value="MF">St. Martin</option>
+                                <option value="PM">St. Pierre and Miquelon</option>
+                                <option value="SD">Sudan</option>
+                                <option value="SR">Suriname</option>
+                                <option value="SJ">Svalbard and Jan Mayen Islands</option>
+                                <option value="SZ">Swaziland</option>
+                                <option value="SE">Sweden</option>
+                                <option value="CH">Switzerland</option>
+                                <option value="SY">Syria</option>
+                                <option value="TA">Tahiti</option>
+                                <option value="TW">Taiwan</option>
+                                <option value="TJ">Tajikistan</option>
+                                <option value="TZ">Tanzania</option>
+                                <option value="TH">Thailand</option>
+                                <option value="TI">Tinian</option>
+                                <option value="TG">Togo</option>
+                                <option value="TK">Tokelau</option>
+                                <option value="TO">Tonga</option>
+                                <option value="TL">Tortola</option>
+                                <option value="TT">Trinidad and Tobago</option>
+                                <option value="TU">Truk</option>
+                                <option value="TN">Tunisia</option>
+                                <option value="TR">Turkey</option>
+                                <option value="TM">Turkmenistan</option>
+                                <option value="TC">Turks and Caicos Islands</option>
+                                <option value="TV">Tuvalu</option>
+                                <option value="UG">Uganda</option>
+                                <option value="UA">Ukraine</option>
+                                <option value="UI">Union Island</option>
+                                <option value="AE">United Arab Emirates</option>
+                                <option value="GB">United Kingdom</option>
+                                <option value="US">United States</option>
+                                <option value="UY">Uruguay</option>
+                                <option value="UM">US Minor Outlying Islands</option>
+                                <option value="VI">US Virgin Islands</option>
+                                <option value="UZ">Uzbekistan</option>
+                                <option value="VU">Vanuatu</option>
+                                <option value="VA">Vatican City State</option>
+                                <option value="VE">Venezuela</option>
+                                <option value="VN">Vietnam</option>
+                                <option value="VR">Virgin Gorda</option>
+                                <option value="WF">Wallis and Futuna Islands</option>
+                                <option value="EH">Western Sahara</option>
+                                <option value="YA">Yap</option>
+                                <option value="YE">Yemen</option>
+                                <option value="ZR">Zaire</option>
+                                <option value="ZM">Zambia</option>
+                                <option value="ZW">Zimbabwe</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="en__field en__field--text en__field--2097 en__field--postcode en__mandatory">
+                        <label for="en__field_supporter_postcode" class="en__field__label" style="">ZIP/Postal
+                            Code</label>
+                        <div class="en__field__element en__field__element--text">
+                            <input id="en__field_supporter_postcode" type="text"
+                                class="en__field__input en__field__input--text" name="supporter.postcode" value="" />
+                        </div>
+                    </div>
+                    <div class="en__field en__field--text en__field--2096 en__field--city en__mandatory">
+                        <label for="en__field_supporter_city" class="en__field__label" style="">City</label>
+                        <div class="en__field__element en__field__element--text">
+                            <input id="en__field_supporter_city" type="text"
+                                class="en__field__input en__field__input--text" name="supporter.city" value="" />
+                        </div>
+                    </div>
+                    <div class="en__field en__field--select en__field--2129 en__field--region en__mandatory">
+                        <label for="en__field_supporter_region" class="en__field__label" style="">State/Province</label>
+                        <div class="en__field__element en__field__element--select">
+                            <select id="en__field_supporter_region" class="en__field__input en__field__input--select"
+                                name="supporter.region">
+                                <option selected="selected" value="">Select</option>
+                                <option value="AL">Alabama</option>
+                                <option value="AK">Alaska</option>
+                                <option value="AS">American Samoa</option>
+                                <option value="AZ">Arizona</option>
+                                <option value="AR">Arkansas</option>
+                                <option value="AA">Armed Forces Americas (AA)</option>
+                                <option value="AE">Armed Forces Europe (AE)</option>
+                                <option value="AP">Armed Forces Pacific (AP)</option>
+                                <option value="CA">California</option>
+                                <option value="CO">Colorado</option>
+                                <option value="CT">Connecticut</option>
+                                <option value="DE">Delaware</option>
+                                <option value="DC">District of Columbia</option>
+                                <option value="FM">Federated States of Micronesia</option>
+                                <option value="FL">Florida</option>
+                                <option value="GA">Georgia</option>
+                                <option value="GU">Guam</option>
+                                <option value="HI">Hawaii</option>
+                                <option value="ID">Idaho</option>
+                                <option value="IL">Illinois</option>
+                                <option value="IN">Indiana</option>
+                                <option value="IA">Iowa</option>
+                                <option value="KS">Kansas</option>
+                                <option value="KY">Kentucky</option>
+                                <option value="LA">Louisiana</option>
+                                <option value="ME">Maine</option>
+                                <option value="MH">Marshall Islands</option>
+                                <option value="MD">Maryland</option>
+                                <option value="MA">Massachusetts</option>
+                                <option value="MI">Michigan</option>
+                                <option value="MN">Minnesota</option>
+                                <option value="MS">Mississippi</option>
+                                <option value="MO">Missouri</option>
+                                <option value="MT">Montana</option>
+                                <option value="NE">Nebraska</option>
+                                <option value="NV">Nevada</option>
+                                <option value="NH">New Hampshire</option>
+                                <option value="NJ">New Jersey</option>
+                                <option value="NM">New Mexico</option>
+                                <option value="NY">New York</option>
+                                <option value="NC">North Carolina</option>
+                                <option value="ND">North Dakota</option>
+                                <option value="MP">Northern Mariana Islands</option>
+                                <option value="OH">Ohio</option>
+                                <option value="OK">Oklahoma</option>
+                                <option value="OR">Oregon</option>
+                                <option value="PW">Palau</option>
+                                <option value="PA">Pennsylvania</option>
+                                <option value="PR">Puerto Rico</option>
+                                <option value="RI">Rhode Island</option>
+                                <option value="SC">South Carolina</option>
+                                <option value="SD">South Dakota</option>
+                                <option value="TN">Tennessee</option>
+                                <option value="TX">Texas</option>
+                                <option value="UT">Utah</option>
+                                <option value="VT">Vermont</option>
+                                <option value="VI">Virgin Islands</option>
+                                <option value="VA">Virginia</option>
+                                <option value="WA">Washington</option>
+                                <option value="WV">West Virginia</option>
+                                <option value="WI">Wisconsin</option>
+                                <option value="WY">Wyoming</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="en__field en__field--text en__field--2093 en__field--emailAddress en__mandatory">
+                        <label for="en__field_supporter_emailAddress" class="en__field__label" style="">E-Mail
+                            Address</label>
+                        <div class="en__field__element en__field__element--text">
+                            <input id="en__field_supporter_emailAddress" type="text"
+                                class="en__field__input en__field__input--text" name="supporter.emailAddress"
+                                value="" />
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="en__component en__component--formblock" style="">
+
+
+                    <div
+                        class="en__field en__field--checkbox en__field--question en__field--164 en__field--membership-updates">
+                        <label class="en__field__label" style="">Membership Updates</label>
+                        <div class="en__field__element en__field__element--checkbox
+	">
+                            <div class="en__field__item">
+                                <input id="en__field_supporter_questions_164" type="checkbox"
+                                    class="en__field__input en__field__input--checkbox" value="Y"
+                                    name="supporter.questions.164" />
+                                <label for="en__field_supporter_questions_164"
+                                    class="en__field__label en__field__label--item"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="en__field en__field--checkbox en__field--question en__field--167 en__field--peta-e-news">
+                        <label class="en__field__label" style="">PETA E-News</label>
+                        <div class="en__field__element en__field__element--checkbox
+	">
+                            <div class="en__field__item">
+                                <input id="en__field_supporter_questions_167" type="checkbox"
+                                    class="en__field__input en__field__input--checkbox" value="Y"
+                                    name="supporter.questions.167" />
+                                <label for="en__field_supporter_questions_167"
+                                    class="en__field__label en__field__label--item"></label>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="en__component en__component--copyblock" style="
+
+
+
+
+
+
+
+">
+                    <h3 class="form_header">3. Payment Information</h3>
+
+
+
+                </div>
+                <div class="en__component en__component--formblock" style="">
+
+
+                    <div class="en__field en__field--select en__field--161964 en__field--paymenttype en__mandatory">
+                        <label for="en__field_transaction_paymenttype" class="en__field__label" style="">Payment
+                            Type</label>
+                        <div class="en__field__element en__field__element--select">
+                            <select id="en__field_transaction_paymenttype"
+                                class="en__field__input en__field__input--select" name="transaction.paymenttype">
+                                <option value="VI">Visa</option>
+                                <option value="MC">MasterCard</option>
+                                <option value="AX">Amex</option>
+                                <option value="DI">Discover</option>
+                                <option value="paypal">Paypal</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="en__component en__component--copyblock cc__icons" style="
+
+
+
+
+
+
+
+">
+                    <ul>
+                        <li><img alt="Visa"
+                                src="https://resources.peta.org/engaging-networks/pages/_shared/images/cc-visa.png" />
+                        </li>
+                        <li><img alt="Mastercard"
+                                src="https://resources.peta.org/engaging-networks/pages/_shared/images/cc-mastercard.png" />
+                        </li>
+                        <li><img alt="American Express"
+                                src="https://resources.peta.org/engaging-networks/pages/_shared/images/cc-amex.png" />
+                        </li>
+                        <li><img alt="Discover"
+                                src="https://resources.peta.org/engaging-networks/pages/_shared/images/cc-discover.png" />
+                        </li>
+                        <li><img alt="Paypal"
+                                src="https://resources.peta.org/engaging-networks/pages/_shared/images/cc-paypal.png" />
+                        </li>
+                    </ul>
+
+
+
+                </div>
+                <div class="en__component en__component--formblock" style="">
+
+
+                    <div class="en__field en__field--text en__field--956 en__field--ccnumber en__mandatory">
+                        <label for="en__field_transaction_ccnumber" class="en__field__label" style="">Credit Card
+                            Number</label>
+                        <div class="en__field__element en__field__element--text">
+                            <input id="en__field_transaction_ccnumber" type="text"
+                                class="en__field__input en__field__input--text" name="transaction.ccnumber" value="" />
+                        </div>
+                    </div>
+                    <div class="en__field en__field--text en__field--958 en__field--ccvv en__mandatory">
+                        <label for="en__field_transaction_ccvv" class="en__field__label" style="">CVV Number</label>
+                        <div class="en__field__element en__field__element--text">
+                            <input id="en__field_transaction_ccvv" type="text"
+                                class="en__field__input en__field__input--text" name="transaction.ccvv" value="" />
+                        </div>
+                    </div>
+                    <div class="en__field en__field--splitselect en__field--962 en__field--ccexpire en__mandatory">
+                        <label for="en__field_transaction_ccexpire" class="en__field__label" style="">Credit Card
+                            Expiration</label>
+                        <div class="en__field__element en__field__element--splitselect">
+                            <input type="hidden" name="transaction.ccexpire.delimiter" value="">
+                            <div class="en__field__item">
+                                <select id="en__field_transaction_ccexpire"
+                                    class="en__field__input en__field__input--splitselect" name="transaction.ccexpire">
+                                    <option selected="selected" value="">MM</option>
+                                    <option value="01">01</option>
+                                    <option value="02">02</option>
+                                    <option value="03">03</option>
+                                    <option value="04">04</option>
+                                    <option value="05">05</option>
+                                    <option value="06">06</option>
+                                    <option value="07">07</option>
+                                    <option value="08">08</option>
+                                    <option value="09">09</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select>
+                            </div>
+                            <div class="en__field__item">
+                                <select class="en__field__input en__field__input--splitselect"
+                                    name="transaction.ccexpire">
+                                    <option selected="selected" value="">YYYY</option>
+                                    <option value="20">2020</option>
+                                    <option value="21">2021</option>
+                                    <option value="22">2022</option>
+                                    <option value="23">2023</option>
+                                    <option value="24">2024</option>
+                                    <option value="25">2025</option>
+                                    <option value="26">2026</option>
+                                    <option value="27">2027</option>
+                                    <option value="28">2028</option>
+                                    <option value="29">2029</option>
+                                    <option value="30">2030</option>
+                                    <option value="31">2031</option>
+                                    <option value="32">2032</option>
+                                    <option value="33">2033</option>
+                                    <option value="34">2034</option>
+                                    <option value="35">2035</option>
+                                    <option value="36">2036</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="en__field en__field--text en__field--3043 en__field--bankRoutingNumber en__mandatory">
+                        <label for="en__field_supporter_bankRoutingNumber" class="en__field__label" style="">Bank
+                            Routing Number</label>
+                        <div class="en__field__element en__field__element--text">
+                            <input id="en__field_supporter_bankRoutingNumber" type="text"
+                                class="en__field__input en__field__input--text" name="supporter.bankRoutingNumber"
+                                value="" />
+                        </div>
+                    </div>
+                    <div class="en__field en__field--text en__field--3022 en__field--bankAccountNumber en__mandatory">
+                        <label for="en__field_supporter_bankAccountNumber" class="en__field__label" style="">Bank
+                            Account Number</label>
+                        <div class="en__field__element en__field__element--text">
+                            <input id="en__field_supporter_bankAccountNumber" type="text"
+                                class="en__field__input en__field__input--text" name="supporter.bankAccountNumber"
+                                value="" />
+                        </div>
+                    </div>
+                    <div class="en__field en__field--text en__field--3033 en__field--NOT_TAGGED_60 en__mandatory">
+                        <label for="en__field_supporter_NOT_TAGGED_60" class="en__field__label" style="">Verify Bank
+                            Account Number</label>
+                        <div class="en__field__element en__field__element--text">
+                            <input id="en__field_supporter_NOT_TAGGED_60" type="text"
+                                class="en__field__input en__field__input--text" name="supporter.NOT_TAGGED_60"
+                                value="" />
+                        </div>
+                    </div>
+                    <div class="en__field en__field--radio en__field--3021 en__field--bankAccountType en__mandatory">
+                        <label for="en__field_supporter_bankAccountType" class="en__field__label" style="">Bank Account
+                            Type</label>
+                        <div class="en__field__element en__field__element--radio
+">
+                            <div class="en__field__item">
+                                <input id="en__field_supporter_bankAccountType0" type="radio"
+                                    class="en__field__input en__field__input--radio" value="Checking"
+                                    name="supporter.bankAccountType" />
+                                <label for="en__field_supporter_bankAccountType0"
+                                    class="en__field__label en__field__label--item">Checking</label>
+                            </div>
+                            <div class="en__field__item">
+                                <input id="en__field_supporter_bankAccountType1" type="radio"
+                                    class="en__field__input en__field__input--radio" value="Savings"
+                                    name="supporter.bankAccountType" />
+                                <label for="en__field_supporter_bankAccountType1"
+                                    class="en__field__label en__field__label--item">Savings</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="en__field en__field--checkbox en__field--3044 en__field--NOT_TAGGED_99 en__mandatory">
+                        <label class="en__field__label" style="">Bank Account Used as a Payment Method</label>
+                        <div class="en__field__element en__field__element--checkbox
+	">
+                            <div class="en__field__item">
+                                <input id="en__field_supporter_NOT_TAGGED_99" type="checkbox"
+                                    class="en__field__input en__field__input--checkbox" value="Y"
+                                    name="supporter.NOT_TAGGED_99" />
+                                <label for="en__field_supporter_NOT_TAGGED_99"
+                                    class="en__field__label en__field__label--item">By checking this option, I agree to
+                                    use my U.S. bank account as a payment method and authorize this organization to
+                                    debit my bank account to fulfill my donation commitment.</label>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" class="en__field__input en__field__input--hidden" name="transaction.othamt3"
+                        value="" />
+
+                    <input type="hidden" class="en__field__input en__field__input--hidden"
+                        name="supporter.NOT_TAGGED_15" value="I agree to the PayPal billing agreement." />
+
+                    <input type="hidden" class="en__field__input en__field__input--hidden"
+                        name="transaction.paycurrency" value="USD" />
+
+
+
+
+                </div>
+                <div class="en__component en__component--formblock" style="">
+
+
+                    <div class="en__field en__field--text en__field--103365 en__field--NOT_TAGGED_16">
+                        <label for="en__field_supporter_NOT_TAGGED_16" class="en__field__label" style="">IMG
+                            Source</label>
+                        <div class="en__field__element en__field__element--text">
+                            <input id="en__field_supporter_NOT_TAGGED_16" type="text"
+                                class="en__field__input en__field__input--text" name="supporter.NOT_TAGGED_16"
+                                value="" />
+                        </div>
+                    </div>
+                    <div class="en__captcha">
+                        <div class="g-recaptcha" data-sitekey="6LdjFAUTAAAAAOR0XkVp_ORlGPrlOB_WMer01f2H"></div>
+                    </div>
+
+                    <div class="en__submit"><button style="">Submit My Secure Donation</button></div>
+
+                </div>
+                <div class="en__component en__component--formblock" style="">
+
+
+                    <input type="hidden" class="en__field__input en__field__input--hidden"
+                        name="supporter.questions.60149" value="" />
+
+
+
+
+                </div>
+            </div>
+        </div>
+        <div class="en__component en__component--row en__component--row--1">
+            <div class="en__component en__component en__component--column en__component--column--1">
+                <div class="en__component en__component--copyblock smaller_text" style="
+
+
+
+
+
+
+
+">
+                    <p align="center">Donations to PETA are in U.S. dollars and are tax-deductible to the fullest extent
+                        allowed by U.S. law. PETA&#39;s tax ID number is 52-1218336. Please print or save this message
+                        for your personal records.</p>
+
+
+
+                </div>
+                <div class="en__component en__component--copyblock smaller_text" style="
+
+
+
+
+
+
+
+">
+                    <div class="is_monthly_element">
+                        <p align="center">Thanks to a generous foundation supporting PETA&#39;s work, an additional gift
+                            of $75 will be made to benefit our Investigations &amp; Rescue Fund for each new monthly
+                            donor who gives via this form until December 31, 2020, or until the $75,000 campaign goal is
+                            met. Donations made after the goal has been met will not qualify for the extra $75 gift, but
+                            they&#39;ll still make a tremendous difference to animals.</p>
+                    </div>
+
+
+
+                </div>
+                <div class="en__component en__component--copyblock" style="
+
+
+
+
+
+
+
+">
+                    <!--<p style="text-align: center;"><img alt="Secured by RapidSSL $10,000 Warrenty" data-ratio-lock="true" data-unit="px" src="https://resources.peta.org/engaging-networks/pages/_shared/images/rapidssl-seal-static-90x50.png" style="height: 50px; width: 90px;margin-right:20px;" /> <img alt="GreatNonProfits Top-Rated Nonprofit" data-ratio-lock="true" data-unit="px" src="https://resources.peta.org/engaging-networks/pages/_shared/images/great-nonprofits-seal.png" style="height: 90px; width: 120px;" /></p>
+-->
+                    <div id="security-logos" style="display: none;">
+                        <p><kbd>UN MIS Secured By RapidSSL $10,000 Warranty Icon - IMAGES ARE COMMENTED OUT SO THEY WONT
+                                SHOW</kbd></p>
+                    </div>
+                    <script>
+                        if (!window.EngagingNetworks) {
+                            document.getElementById("security-logos").style.display = "block";
+                        }
+                    </script>
+
+                    <p>&nbsp;</p>
+
+
+
+                </div>
+            </div>
+        </div>
+        <div class="en__component en__component--row en__component--row--1">
+            <div class="en__component en__component en__component--column en__component--column--1">
+                <div class="en__component en__component--copyblock" style="
+
+
+
+
+
+
+
+">
+                    <!--FOOTER-->
+                    <div class="footer" id="footer">
+                        <div class="footer-border">
+                            <div class="footer-logo"><img alt="PETA"
+                                    src="https://resources.peta.org/engaging-networks/pages/peta/images/peta-logo-gray-x3.png"
+                                    width="65" /></div>
+
+                            <div class="footer-text">
+                                <ul>
+                                    <li><a href="https://www.peta.org/about-peta/contact-peta/" target="_self">Contact
+                                            PETA</a></li>
+                                    <li><a href="https://www.peta.org/about-peta/learn-about-peta/website-policies/disclaimer/"
+                                            target="_self">Disclaimer</a></li>
+                                    <li><a href="https://www.peta.org/about-peta/learn-about-peta/website-policies/privacy/"
+                                            target="_self">Privacy Policy</a></li>
+                                    <li><a href="https://www.peta.org/about-peta/learn-about-peta/website-policies/contest-terms-conditions/"
+                                            target="_self">Contest Terms and Conditions</a></li>
+                                    <li><a href="https://www.peta.org/about-peta/learn-about-peta/website-policies/texting-terms-and-conditions/"
+                                            target="_self">Texting Terms and Conditions </a></li>
+                                    <li><a href="https://www.peta.org/about-peta/learn-about-peta/website-policies/peta-online-community-terms-of-use-agreement/"
+                                            target="_self">Terms of Use</a></li>
+                                    <li><a href="https://support.peta.org/page/1828/donate/1?en_txn7=Navigation::top%20donate%20now%20button&amp;supporter.appealCode=IXXXWBXXXXG"
+                                            target="_self">Donate Now</a></li>
+                                    <li><a href="https://www.peta.org/about-peta/contact-peta/report-website-abuse/"
+                                            target="_self">Report Website Abuse</a></li>
+                                    <li id="last">&copy; <script>
+                                            if (window.EngagingNetworks) {
+
+                                                document.write(new Date().getFullYear());
+
+                                            }
+                                        </script> PETA. <a
+                                            href="https://www.peta.org/about-peta/learn-about-peta/website-policies/"
+                                            target="_self">Read our full policy.</a></li>
+                                </ul>
+
+                                <p>People for the Ethical Treatment of Animals<br />
+                                    501 Front St., Norfolk, VA 23510<br />
+                                    757-622-PETA (7382)<br />
+                                    757-622-0457 (fax)</p>
+
+                                <p>PETA is a nonprofit, tax-exempt 501(c)(3) corporation (tax ID number 52-1218336)</p>
+                            </div>
+
+                            <div id="photo-credit">&nbsp;</div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="en__component en__component--codeblock">
+                    <style type="text/css">
+                        @import url('https://fonts.googleapis.com/css?family=Open+Sans:600,700');
+
+                        .popup {
+                            max-width: 258px !important;
+                            margin: 0 auto;
+                            position: relative;
+                        }
+
+                        .exit-popup-container {
+                            padding: 5px;
+                            background-color: #fff;
+                        }
+
+                        .exit-popup {
+                            border: 5px solid #000;
+                            text-align: center;
+                            margin: 0;
+                            padding: 25px;
+                            background-color: #fff;
+                        }
+
+                        .exit-popup h3 {
+                            font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+                            font-size: 2.063rem;
+                            color: #000;
+                            font-weight: 700;
+                            line-height: 1.1;
+                            margin: 0 0 13px 0;
+                        }
+
+                        .exit-popup p {
+                            font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+                            font-size: 0.9375rem;
+                            font-weight: 600;
+                            line-height: 20px;
+                            margin: 0 0 16px 0;
+                        }
+
+                        .exit-popup a {
+                            display: block;
+                            font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+                            font-size: 0.8125rem;
+                            background-color: #ff4794;
+                            padding: 13px 16px;
+                            font-weight: 700;
+                            border: none;
+                            color: white;
+                            cursor: pointer;
+                            text-decoration: none;
+                        }
+                    </style>
+
+                    <div id="hateToSeeYouGo" class="popup mfp-hide">
+                        <div class="exit-popup-container">
+                            <div class="exit-popup">
+                                <h3>We Hate To See You Go</h3>
+                                <p>Would you mind telling us why you are leaving this page?</p>
+                                <a href="https://my.surveypal.com/app/form?_d=0&_sid=616348961&_k=UonqOtvKPcU2eupqEamdAJ3rT1gIY5x84ztxRmX4rPWqvwiHwG-FBRwekfgXmjzy&channel=website"
+                                    target="_blank">Share Your Feedback</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <script type="text/javascript">
+                        var alreadyViewed = false;
+                        var hateToSeeYouGo_Timer = null;
+                        jQuery('body').mouseleave(function (event) {
+                            if (event.pageY - jQuery(window).scrollTop() <= 1) {
+                                if (!petaEN_isMobile.any() && alreadyViewed == false && document.cookie.indexOf(
+                                        'htsyg=exists') == -1) {
+                                    if (hateToSeeYouGo_Timer == null) {
+                                        hateToSeeYouGo_Timer = setTimeout(function () {
+                                            jQuery.magnificPopup.open({
+                                                items: {
+                                                    src: '#hateToSeeYouGo'
+                                                },
+                                                type: 'inline',
+                                                callbacks: {
+                                                    close: function () {
+
+                                                    }
+                                                }
+                                            }, 0);
+                                            alreadyViewed = true;
+                                            hateToSeeYouGo_Timer = null;
+                                            document.cookie = 'htsyg=exists; path=/; expires=' + (
+                                                new Date(
+                                                    Date.now() + 7 * 60 * 60 * 1000)).toUTCString();
+                                        }, 1000);
+                                    }
+                                }
+                            }
+                        });
+
+                        jQuery('body').mouseenter(function (event) {
+                            clearTimeout(hateToSeeYouGo_Timer);
+                            hateToSeeYouGo_Timer = null;
+                        });
+                    </script>
+                </div>
+                <div class="en__component en__component--codeblock">
+                    <script>
+                        jQuery(document).ready(function () {
+                            //---------------------------------------------------------------------------------------/
+                            // - You must UNLINK this shared library component before making page-specific customizations.
+                            //---------------------------------------------------------------------------------------/
+                            var noTypeValues = [25, 35, 50, 100];
+                            var goMonthlyValues = [10, 25, 35, 50];
+
+                            jQuery("#en__field_transaction_recurrpay1").click(function () {
+                                setDonationRadios(goMonthlyValues);
+                                jQuery('#en__field_transaction_donationAmt2').click();
+                            });
+
+                            jQuery("#en__field_transaction_recurrpay0").click(function () {
+                                setDonationRadios(noTypeValues);
+                                jQuery('#en__field_transaction_donationAmt1').click();
+                            });
+                        });
+                    </script>
+                </div>
+                <div class="en__component en__component--codeblock">
+                    <style>
+                        /* DO NOT ADD ADDITIONAL STYLES
+For hiding recurring payment label ONLY */
+
+                        .en__field--recurrpay label:first-child {
+                            display: none !important;
+                        }
+                    </style>
+                </div>
+                <div class="en__component en__component--codeblock">
+                    <style>
+                        body.no-bg form.en__component:first-of-type::before {
+                            background: #999;
+                        }
+
+                        body.no-bg img.mobile-only {
+                            display: none;
+                        }
+
+                        .js-bg-toggle {
+                            background: none;
+                            border: none;
+                            padding: 0;
+                            width: auto;
+                            z-index: 99;
+                        }
+
+                        @media all and (min-width: 676px) {
+                            .js-bg-toggle {
+                                display: table;
+                                position: fixed;
+                                top: 55px;
+                                right: 20px;
+                                background: #d3d1d0;
+                                padding-right: 0.75em;
+                                padding-left: 0.75em;
+                                padding-top: 0;
+                                padding-bottom: 0;
+                                border-radius: 5px;
+                                margin-bottom: 0;
+                                height: 46px;
+                            }
+                        }
+
+                        .js-bg-toggle:hover {
+                            background: none;
+                        }
+
+                        @media all and (min-width: 676px) {
+                            .js-bg-toggle:hover {
+                                background: #d3d1d0;
+                            }
+                        }
+
+                        .js-bg-toggle:active,
+                        .js-bg-toggle:focus {
+                            background: none;
+                            border: none;
+                        }
+
+                        @media all and (min-width: 676px) {
+
+                            .js-bg-toggle:active,
+                            .js-bg-toggle:focus {
+                                background: #d3d1d0;
+                            }
+                        }
+
+                        .js-bg-toggle .center {
+                            width: 300px;
+                            height: 46px;
+                            display: block;
+                            display: table-cell;
+                            vertical-align: middle;
+                            text-align: center;
+                            margin: 0;
+                            padding: 0;
+                        }
+
+                        /*.js-bg-toggle .center:after {
+  display: table;
+  content: '';
+  clear: both; }*/
+                        @media all and (min-width: 676px) {
+                            .js-bg-toggle .center {
+                                width: 212px;
+                            }
+                        }
+
+                        .js-bg-toggle img,
+                        .js-bg-toggle span {
+                            /*float: left;*/
+                        }
+
+                        .js-bg-toggle img {
+                            max-width: 20px;
+                        }
+
+                        .js-bg-toggle span {
+                            display: inline-block;
+                            margin-left: 10px;
+                            margin-bottom: 0;
+                            text-align: left;
+                            font-size: 13px;
+                            color: #000;
+                            padding-top: 3px;
+                            padding-bottom: 0;
+                            text-decoration: underline;
+                        }
+
+                        @media all and (min-width: 676px) {
+                            .js-bg-toggle span {
+                                text-decoration: none;
+                            }
+                        }
+                    </style>
+                    <script type="text/javascript"
+                        src="https://resources.peta.org/engaging-networks/pages/peta/js/background-toggle.js"></script>
+                </div>
+                <div class="en__component en__component--codeblock">
+                    <script>
+                        $(document).ready(function () {
+                            if (document.getElementsByName("transaction.donationAmt").length) {
+                                tipJar.initDOM({
+                                    tipjarContent: 'For just $%tipcost% more, I would like to cover the transaction fees and help <em>even more</em> animals.',
+                                    dynamicTipIntro: true
+                                });
+                            }
+                        });
+                    </script>
+                </div>
+            </div>
+            <div class="en__component en__component--copyblock" style="
+
+
+
+
+
+
+
+">
+                <div id="hidden_info" style="display: none;">
+                    <p><kbd>UN MIS Hidden Thank You Text w/ Social Sharing Email Info - *Important Note* You must UNLINK
+                            this shared library component before making page-specific customizations.</kbd></p>
+                </div>
+                <script>
+                    if (!window.EngagingNetworks) {
+                        document.getElementById("hidden_info").style.display = "block";
+                    }
+                </script>
+
+                <div id="hiddenInfo" style="display: none;">
+                    <h2 class="tyHeader">&nbsp;</h2>
+
+                    <div class="tyText">
+                        <p>&nbsp;</p>
+
+                        <p>&nbsp;</p>
+                    </div>
+                    <img class="tyImage" src="" />
+                    <div class="tyImageText">&nbsp;</div>
+
+                    <div class="twitterMessage">&nbsp;</div>
+
+                    <div class="emailSubject">&nbsp;</div>
+
+                    <div class="emailBody">&nbsp;</div>
+                </div>
+
+                <p>&nbsp;</p>
+
+
+
+            </div>
+            <div class="en__component en__component--copyblock" style="
+
+
+
+
+
+
+
+">
+                <!--  HIDDEN POPUP HTML -->
+                <div class="cc-popup mfp-hide" id="ccv">
+                    <div class="row">
+                        <div class="small-12 medium-12 medium-text-left columns">
+                            <h3>What is the Verification Code and what does it look like?</h3>
+
+                            <p>For your protection, we ask that you enter an extra 3-4 digit number called the CVV2. The
+                                CVV2 is NOT your PIN number. It is an extra ID printed on your Visa, MasterCard,
+                                Discover, or American Express Card.</p>
+                        </div>
+
+                        <div class="small-12 medium-8 medium-text-left columns">
+                            <h4>Visa, MasterCard &amp; Discover</h4>
+
+                            <p>On the back of the card in the top-right corner of the signature box, as depicted in the
+                                image to the right. Enter the three-digit number following the credit card number.</p>
+                        </div>
+
+                        <div class="small-12 text-center medium-4 medium-text-right columns">
+                            <p align="center"><img
+                                    alt="The CVV2 is shown as 3 digits after the credit card number on the back of the card."
+                                    src="https://resources.peta.org/engaging-networks/pages/_shared/images/visa-cvv2.jpg" />
+                            </p>
+                        </div>
+
+                        <div class="small-12 medium-8 medium-text-left columns">
+                            <h4>American Express</h4>
+
+                            <p>On the front of the card as depicted in the image to the right. Enter the four-digit
+                                number on the right directly above the credit card number.</p>
+                        </div>
+
+                        <div class="small-12 text-center medium-4 medium-text-right columns">
+                            <p align="center"><img alt="The CVV2 is shown as 4 digits on the front of the card."
+                                    src="https://resources.peta.org/engaging-networks/pages/_shared/images/amex-cvv2.jpg" />
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="ccv-info" style="display: none;">
+                    <p><kbd>UN POP Credit Card Verification Code Info Popup</kbd></p>
+                </div>
+                <script>
+                    if (!window.EngagingNetworks) {
+                        document.getElementById("ccv-info").style.display = "block";
+                    }
+                </script>
+
+
+            </div>
+            <div class="en__component en__component--copyblock" style="
+
+
+
+
+
+
+
+">
+                <!-- AUTOMATIC LIGHTBOX BEGIN -->
+                <div id="lightbox_styles" style="display: none;">
+                    <p><kbd>UN POP Go Monthly Upsell Lightbox Viv Monkey $75 Match - *Important Note* You must UNLINK
+                            this shared library component before making page-specific customizations. </kbd></p>
+                </div>
+                <style type="text/css">
+                    @import url("https://resources.peta.org/engaging-networks/pages/_shared/styles/popup.css");
+                </style>
+                <script>
+                    if (!window.EngagingNetworks) {
+                        document.getElementById("lightbox_styles").style.display = "block";
+
+                    }
+                </script>
+                <!--<script src="https://resources.peta.org/engaging-networks/pages/_shared/js/popup.js"></script>-->
+                <div class="popup mfp-hide" id="goMonthly">
+                    <div id="lbdiv"
+                        style="background-image: url(&quot;https://acb0a5d73b67fccd4bbe-c2d8138f0ea10a18dd4c43ec3aa4240a.ssl.cf5.rackcdn.com/10003/PE-VIV_2019-03_Primate-Upsell-Lightbox_PO_SHodson.png?v=1552313409000&quot;);">
+                        <!--START NO MATCH LANGUAGE-->
+                        <!--<div id="lbmessage">Monthly donors are vital for PETA to help animals today and tomorrow. Will you change your donation to a monthly gift of $
+<p id="testparagraph" style="display:inline;">&nbsp;</p>
+?<br />-->
+                        <!--END NO MATCH LANUAGE-->
+                        <div id="lbmessage">Changing your gift to $<span id="testparagraph"
+                                style="display: inline;">&nbsp;</span> per month can increase your impact for animals.
+                            Plus we&#39;ll receive an extra $75 from a generous foundation supporting PETA&#39;s
+                            work!<br />
+                            <!--END MATCH LANGUAGE--> <span style="line-height: inherit; font-size: 12px;">Or, enter
+                                your own amount:</span> <input href="#" id="secondOtherField" name="secondOtherField"
+                                size="12" style="width: 70px; margin-top: -5px; display: inline;" type="text"
+                                value="" /></div>
+                        <!-- START USER GEN AMOUNT YES BUTTON -->
+
+                        <div id="userYesButton"><a href="#">Yes!<br />
+                                Process my monthly gift.</a></div>
+                        <!-- END USER GEN AMOUNT YES BUTTON -->
+
+                        <div id="nobutton">
+                            <!-- START SUBMIT NO THANKS BUTTON --><button class="mfp-close FinishButton"
+                                name="pstep_finish" title="Close (Esc)" type="button">NO, THANKS.<br />
+                                Continue with my one-time gift.</button><!-- END SUBMIT NO THANKS BUTTON -->
+                        </div>
+                    </div>
+                    <!-- AUTOMATIC LIGHTBOX END -->
+                </div>
+
+
+
+            </div>
+            <div class="en__component en__component--copyblock" style="
+
+
+
+
+
+
+
+">
+                <!--<p class="ccvv__link"><a class="open-popup-link" href="#bank-routing-info">Bank Routing Number?</a></p>-->
+                <p class="ccvv__link"><a class="open-popup-link" href="#bank-routing-info"><i aria-hidden="true"
+                            class="fa fa-question-circle">&nbsp;</i></a> <!--  HIDDEN POPUP HTML -->
+                </p>
+
+                <div class="cc-popup mfp-hide" id="bank-routing-info">
+                    <div class="row">
+                        <div class="small-12 medium-text-left columns">
+                            <h3>Bank Routing &amp; Account Numbers</h3>
+
+                            <p>To make a payment directly from your U.S. bank account, you will need to provide the
+                                routing number for your bank, as well as your account number. Both of these numbers can
+                                be found at the bottom of a check issued for your bank account.</p>
+
+                            <p>At the bottom of your check you will find three numbers - the routing number which is
+                                always 9 digits long for U.S. banks, the account number which can be up to 17 digits
+                                long, and the check number which will match the number found in the upper right corner
+                                of the check. These sets of numbers can appear in a variety of orders on your check.
+                                However, you will always find the routing number surrounded by this symbol ACH Routing
+                                Symbol, and the account number will always be to the left of this symbol ACH Account
+                                Symbol.</p>
+
+                            <p>Please use the image below for an example of how your routing and account numbers may
+                                appear on your check.</p>
+                        </div>
+
+                        <div class="small-12 medium-text-left columns">
+                            <h4>Sample Check:</h4>
+
+                            <p>The routing number comes first and is surrounded by the ACH Routing Symbol symbol, the
+                                account number comes next and is followed by the ACH Account Symbol symbol.</p>
+                        </div>
+
+                        <div class="small-12 medium-text-left columns">
+                            <p align="center"><img
+                                    alt="The CVV2 is shown as 3 digits after the credit card number on the back of the card."
+                                    src="https://resources.peta.org/engaging-networks/pages/_shared/images/bank-routing.gif" />
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="bank-info" style="display: none;">
+                    <p><kbd>UN POP Bank Routing Number Info Popup</kbd></p>
+                </div>
+                <script>
+                    if (!window.EngagingNetworks) {
+                        document.getElementById("bank-info").style.display = "block";
+                    }
+                </script>
+
+
+            </div>
+        </div>
+    </form>
+    <!--START Google Analytics Social Button Tracking-->
+    <script language="javascript" type="text/javascript"
+        src="https://secure.mediapeta.com/scripts/googleAnalytics/global/ga_social_tracking.js"></script>
+    <!--END Google Analytics Social Button Tracking-->
+
+    <!-- Lightbox BEGIN -->
+    <script language="javascript" type="text/javascript"
+        src="https://resources.peta.org/engaging-networks/pages/_shared/js/jquery.magnific-popup.min.js"></script>
+    <script language="javascript" type="text/javascript"
+        src="https://resources.peta.org/engaging-networks/pages/_shared/js/magnific-scripts.js"></script>
+    <!-- Lightbox END -->
+
+    <script language="javascript" type="text/javascript"
+        src="https://resources.peta.org/engaging-networks/pages/_shared/theme-donation-background-image/js/foundation.min.js">
+    </script>
+    <script language="javascript" type="text/javascript"
+        src="https://resources.peta.org/engaging-networks/pages/_shared/theme-donation-background-image/js/peta-header.js">
+    </script>
+    <script language="javascript" type="text/javascript"
+        src="https://resources.peta.org/engaging-networks/pages/_shared/theme-donation-background-image/js/peta-footer.js">
+    </script>
+    <script language="javascript" type="text/javascript"
+        src="https://resources.peta.org/engaging-networks/pages/_shared/theme-donation-background-image/js/en-custom-scripts.js">
+    </script>
+
+    <script type="text/javascript"
+        src="https://h.online-metrix.net/fp/tags.js?org_id=e0j3u9ji&session_id=10003-fe16f67186f9486ab8313b8236bd36b1-server50011&pageid=1">
+    </script>
+    <noscript>
+        <iframe style="width: 100px; height: 100px; border: 0; position: absolute; top: -5000px;"
+            src="https://h.online-metrix.net/tags?org_id=e0j3u9ji&session_id=10003-fe16f67186f9486ab8313b8236bd36b1-server50011&pageid=1"></iframe>
+    </noscript>
+    <script type="text/javascript" src="https://resources.peta.org/engaging-networks/pages/_shared/js/applepay.js">
+    </script>
+    <script language="javascript" type="text/javascript"
+        src="https://resources.peta.org/engaging-networks/pages/_shared/js/tip-jar.js"></script>
+
+        <script src="conversionfile.js"></script>
+</body>
+
+</html>
+<!-- PE DON EVR GEN 2017-06 Canonical General WEB Donation IXXXWBXXXXG (ERodriguez):1828:1262:10003 -->
