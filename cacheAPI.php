@@ -6,7 +6,7 @@
 $endpoint = 'latest';
 $access_key = 'bd86b13c4f91a685545925857ea5eeb6';
 
-//15 seconds of cache life span
+//1 day cache life span
 $cacheTimer = 86400;
 
 //File name for the cached conversion rates
