@@ -27,15 +27,13 @@ function createIssues($errorMsg)
 {
     //personal auth token from your github.com account.  doing this will eliminate having to use oauth everytime
 
-    $email = 'justyn@4sitestudios.com';
-    $repo = 'PETA';
-    $owner = 'jdelacr';
-    $github_personal_access_token = 'e37b9be3804d4828a86cd75fa59fab1e6eefcd29';
+    $issueTitle = 'API issue error';
+    $github_personal_access_token = '4b70456d2b3c4167511025c897d19f0573d47913';
 
     $headers = array("Authorization: token $github_personal_access_token", 'User-Agent: Email-To-Issue-Bot');
 
     $json = array();
-    $json['title'] = $email;
+    $json['title'] = $issueTitle;
     $json['body'] = $errorMsg;
 
     // Create the new GitHub issue
@@ -47,6 +45,8 @@ function createIssues($errorMsg)
     curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($json));
     curl_exec($ch);
     curl_close($ch);
+
+    echo 'An issue has been sent in the Github';
 }
 
 //Check if the file name still exists
@@ -84,6 +84,7 @@ if (!file_exists($cacheFileName) or (time() - filemtime($cacheFileName) > $cache
     //Console log the false state of the Fixer.io
     else if ($exchangeRates['success'] == false) {
         createIssues($json);
+        sendEmail($errorMsg);
         echo $json;
     }
 
