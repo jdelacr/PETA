@@ -63,108 +63,126 @@ $(document).ready(function () {
                 }
             }
 
+            function conversionRate(currentLangRate, selectedAmt, calc, currency) {
+                formatter = new Intl.NumberFormat('en-US', {
+                    style: 'currency',
+                    currency: currency,
+                    currencyDisplay: 'narrowSymbol'
+                });
+                var conversionRate = lang + ' $' + selectedAmt + ' = ' + currency + ' ' + formatter.format(calc);
+                $('h3#pseudoRates').html(conversionRate);
+            }
 
             $('select#en__field_pseudo_currencyConverter').change(function () {
-
+                console.log("Currency Converter Changed");
                 if (this.value != lang) {
                     $('div#pseudo_Info').css('display', 'block');
                 } else {
                     $('div#pseudo_Info').css('display', 'none');
                 }
 
-                $('select#en__field_pseudo_currencyConverter option:selected').each(
-                    function () {
+                var selectedRate = node[0].rates[this.value];
+                var currentLangRate = node[0].rates[lang];
+                var selectedAmt = $('input[name="transaction.donationAmt"]:checked').val();
+                var formatter = new Intl.NumberFormat('en-US', {
+                    style: 'currency',
+                    currency: this.value,
+                    currencyDisplay: 'narrowSymbol'
+                });
 
-                        var selectedRate = node[0].rates[this.value];
-                        var currentLangRate = node[0].rates[lang];
-                        var selectedAmt = $('input[name="transaction.donationAmt"]:checked').val();
-                        var formatter = new Intl.NumberFormat('en-US', {
-                            style: 'currency',
-                            currency: this.value,
-                            currencyDisplay: 'narrowSymbol'
-                        });
+                $('div#pseudo_Info').html(loadLang(pageLang, this.value));
 
-                        $('div#pseudo_Info').html(loadLang(pageLang, this.value));
+                var calc = (selectedAmt * selectedRate) / currentLangRate;
 
-                        var calc = (selectedAmt * selectedRate) / currentLangRate;
+                //Determine if the value is nothing
+                if (!selectedAmt) {
+                    //If the input box is empty, set the amount to 0 for default output
+                    if (!$('input[name="transaction.donationAmt.other"]').val()) {
+                        selectedAmt = 0;
+                    } else {
+                        //If there is a value in the input box after changing currency, get the value in the input box
+                        selectedAmt = $('input[name="transaction.donationAmt.other"]').val();
+                    }
+                    //calculate the selected amount
+                    calc = (selectedAmt * selectedRate) / currentLangRate;
+                }
 
-                        //Determine if the value is nothing
-                        if (!selectedAmt) {
-                            //If the input box is empty, set the amount to 0 for default output
-                            if (!$('input[name="transaction.donationAmt.other"]').val()) {
-                                selectedAmt = 0;
-                            } else {
-                                //If there is a value in the input box after changing currency, get the value in the input box
-                                selectedAmt = $('input[name="transaction.donationAmt.other"]').val();
-                            }
-                            //calculate the selected amount
-                            calc = (selectedAmt * selectedRate) / currentLangRate;
-                        }
-
-                        function conversionRate(selectedRate, currentLangRate, selectedAmt, calc, currency) {
-                            var conversionRate = lang + ' $' + selectedAmt + ' = ' + currency + ' ' + formatter.format(calc);
-                            $('h3#pseudoRates').html(conversionRate);
-                        }
-
-                        //Default output when the dropdown has been selected
-                        conversionRate(selectedRate, currentLangRate, selectedAmt, calc, this.value);
-
-                        //Action to take when one of the buttons have been changed
-                        $('input[name="transaction.donationAmt"]').on('click',
-                            function () {
-                                selectedAmt = $('input[name="transaction.donationAmt"]:checked').val();
-                                currency = $('select#en__field_pseudo_currencyConverter option:selected').val();
-
-                                //Get the rate
-                                selectedRate = node[0].rates[currency];
-                                currentLangRate = node[0].rates[lang];
-                                formatter = new Intl.NumberFormat('en-US', {
-                                    style: 'currency',
-                                    currency: currency,
-                                    currencyDisplay: 'narrowSymbol'
-                                });
-
-                                //calculate the rate
-                                calc = (selectedAmt * selectedRate) / currentLangRate;
-
-                                //Output text
-                                //Setting default value when the custom input is empty when clicking the other button
-                                if (!selectedAmt) {
-                                    $('h3#pseudoRates').html('$0 ' + lang + ' = ' +
-                                        formatter.format(calc) + ' ' +
-                                        currency);
-                                } else {
-                                    conversionRate(selectedRate, currentLangRate, selectedAmt, calc, currency);
-                                }
-                            });
-
-                        //calculate the rates when inputting the value
-                        $('input[name="transaction.donationAmt.other"]')
-                            .keyup(
-                                function () {
-
-                                    currency = $('select#en__field_pseudo_currencyConverter option:selected').val();
-                                    selectedRate = node[0].rates[currency];
-                                    currentLangRate = node[0].rates[lang];
-                                    formatter = new Intl.NumberFormat(
-                                        'en-US', {
-                                            style: 'currency',
-                                            currency: currency,
-                                            currencyDisplay: 'narrowSymbol'
-                                        });
-
-                                    calc = (this.value * selectedRate) / currentLangRate;
-
-                                    //Setting default value when the custom input is empty
-                                    if (!this.value) {
-                                        $('h3#pseudoRates').html('$0 ' + lang + ' = ' + formatter.format(calc) + ' ' + currency);
-                                    } else {
-                                        $('h3#pseudoRates').html(
-                                            conversionRate(selectedRate, currentLangRate, this.value, calc, currency));
-                                    }
-                                });
-                    })
+                //Default output when the dropdown has been selected
+                conversionRate(currentLangRate, selectedAmt, calc, this.value);
             });
+
+            $('select#en__field_pseudo_currencyConverter option:selected').each(
+                function () {
+
+                    var selectedRate = node[0].rates[this.value];
+                    var currentLangRate = node[0].rates[lang];
+                    var selectedAmt = $('input[name="transaction.donationAmt"]:checked').val();
+
+                    $('div#pseudo_Info').html(loadLang(pageLang, this.value));
+
+                    var calc = (selectedAmt * selectedRate) / currentLangRate;
+
+                    //Determine if the value is nothing
+                    if (!selectedAmt) {
+                        //If the input box is empty, set the amount to 0 for default output
+                        if (!$('input[name="transaction.donationAmt.other"]').val()) {
+                            selectedAmt = 0;
+                        } else {
+                            //If there is a value in the input box after changing currency, get the value in the input box
+                            selectedAmt = $('input[name="transaction.donationAmt.other"]').val();
+                        }
+                        //calculate the selected amount
+                        calc = (selectedAmt * selectedRate) / currentLangRate;
+                    }
+
+                    //Default output when the dropdown has been selected
+                    conversionRate(currentLangRate, selectedAmt, calc, this.value);
+                });
+
+            //Action to take when one of the buttons have been changed
+            $('input[name="transaction.donationAmt"]').on('click',
+                function () {
+                    console.log("Donation Amount Clicked");
+                    selectedAmt = $('input[name="transaction.donationAmt"]:checked').val();
+                    currency = $('select#en__field_pseudo_currencyConverter option:selected').val();
+
+                    //Get the rate
+                    selectedRate = node[0].rates[currency];
+                    currentLangRate = node[0].rates[lang];
+
+                    //calculate the rate
+                    calc = (selectedAmt * selectedRate) / currentLangRate;
+
+                    //Output text
+                    //Setting default value when the custom input is empty when clicking the other button
+                    if (!selectedAmt) {
+                        $('h3#pseudoRates').html('$0 ' + lang + ' = ' +
+                            formatter.format(calc) + ' ' +
+                            currency);
+                    } else {
+                        conversionRate(currentLangRate, selectedAmt, calc, currency);
+                    }
+                });
+
+            //calculate the rates when inputting the value
+            $('input[name="transaction.donationAmt.other"]')
+                .keyup(
+                    function () {
+                        console.log("Other Keyup");
+                        currency = $('select#en__field_pseudo_currencyConverter option:selected').val();
+                        selectedRate = node[0].rates[currency];
+                        currentLangRate = node[0].rates[lang];
+
+                        calc = (this.value * selectedRate) / currentLangRate;
+
+                        //Setting default value when the custom input is empty
+                        if (!this.value) {
+                            $('h3#pseudoRates').html('$0 ' + lang + ' = ' + formatter.format(calc) + ' ' + currency);
+                        } else {
+                            $('h3#pseudoRates').html(
+                                conversionRate(currentLangRate, this.value, calc, currency));
+                        }
+                    });
         }
     }
 });
