@@ -6,13 +6,13 @@ function loadLang(lang, currency) {
     var info = '';
     switch (lang) {
         case 'en':
-            info = `<p style="font-size:.8rem;">All gifts are processed in U.S. dollars. Use this calculator to determine the amount of your gifts in ${currency} based on current exchange rates provided by Fixer.io</p><hr></hr><h3 id="pseudoRates"></h3>`;
+            info = `<p class="langInfo">All gifts are processed in U.S. dollars. Use this calculator to determine the amount of your gifts in ${currency} based on current exchange rates provided by Fixer.io</p><hr class="currencyDivider"><h3 id="pseudoRates"></h3>`;
             break;
         case 'es':
-            info = `<p style="font-size:.8rem;">Todos los donativos se convierten a dólares estadounidenses (USD). Usa esta calculadora para determinar el monto de tu donativo en ${currency} según el tipo de cambio actual provisto por Fixer.io.</p><hr></hr><h3 id="pseudoRates"></h3>`;
+            info = `<p class="langInfo">Todos los donativos se convierten a dólares estadounidenses USD. Usa esta calculadora para determinar el monto de tu donativo en ${currency} según el tipo de cambio actual provisto por Fixer.io.</p><hr class="currencyDivider"><h3 id="pseudoRates"></h3>`;
             break;
         default:
-            info = `<p style="font-size:.8rem;">Conversion to ${currency} are based on current exchange rates to aid you in your selection. All gifts are shown in USD.</p><hr></hr><h3 id="pseudoRates"></h3>`;
+            info = `<p class="langInfo">Conversion to ${currency} are based on current exchange rates to aid you in your selection. All gifts are shown in USD.</p><hr class="currencyDivider"><h3 id="pseudoRates"></h3>`;
     }
 
     return info;
@@ -38,7 +38,7 @@ $(document).ready(function () {
     function appendConverter(res) {
         var node = [res];
         //Initiate appending the currency converter selector
-        $('.en__field--donationAmt').before('<div class="en__field en__field--select en__field--0000 en__field--pseudo-currencyConverter"><div class="en__field__element en__field__element--select" style="width:50%"><select id="en__field_pseudo_currencyConverter" class="en__field__input en__field__input--select" name="currencyConverter" style="border: none;"></select></div><div id="pseudo_Info" style="padding: 1rem; display: none; border: 1px solid darkgray; border-radius:5px;"></div></div>');
+        $('.en__field--donationAmt').before('<style>p.currencySelectLabel{display:inline;}p.langInfo{font-size:.8rem;}.en__field--pseudo-currencyConverter{width: 100%;}.en__field--pseudo-currencyText{display: inline-block !important;}#en__field_pseudo_currencyConverter{border: none;background-position: calc(100% + 1rem);padding-right: 1.5rem;margin-bottom: 0;}select#en__field_pseudo_currencyConverter:focus{box-shadow: 0 0 0;}#pseudo_Info{padding: 1rem;display: block;border: 1px solid rgb(204, 204, 204);border-radius: 5px;margin-top: .25rem;} hr.currencyDivider{margin: 0 0 1rem 0;}</style><div class="en__field en__field--select en__field--0000 en__field--pseudo-currencyConverter"><div class="en__field__element en__field__element--select en__field--pseudo-currencyText"><select id="en__field_pseudo_currencyConverter" class="en__field__input en__field__input--select" name="currencyConverter"></select></div><div id="pseudo_Info" style="display:none;"></div></div>');
 
         //If there is an error in the API, then the block is hidden
         if (node[0].success == false || node == null) {
@@ -51,15 +51,19 @@ $(document).ready(function () {
             for (const [key, value] of Object.entries(node[0].rates)) {
                 if (key == lang) {
                     if (pageLang == 'es') {
+                        $('div.en__field--pseudo-currencyText').before(
+                            `<p class="currencySelectLabel">Moneda de Preferencia</p>`);
                         $('select#en__field_pseudo_currencyConverter').append(
-                            `<option value="${key}">Moneda de Preferencia ${key}	</option>`);
+                            `<option value="${key}">(${key})</option>`);
                     } else {
+                        $('div.en__field--pseudo-currencyText').before(
+                            `<p class="currencySelectLabel">Preferred currency</p>`);
                         $('select#en__field_pseudo_currencyConverter').append(
-                            `<option value="${key}">Preferred currency ${key}	</option>`);
+                            `<option value="${key}">(${key})</option>`);
                     }
                 } else {
                     $('select#en__field_pseudo_currencyConverter').append(
-                        `<option value="${key}">${key}</option>`);
+                        `<option value="${key}">(${key})</option>`);
                 }
             }
 
@@ -69,7 +73,7 @@ $(document).ready(function () {
                     currency: currency,
                     currencyDisplay: 'narrowSymbol'
                 });
-                var conversionRate = lang + ' $' + selectedAmt + ' = ' + currency + ' ' + formatter.format(calc);
+                var conversionRate = lang + '&nbsp;$' + selectedAmt + ' <wbr>= ' + currency + '&nbsp;' + formatter.format(calc);
                 $('h3#pseudoRates').html(conversionRate);
             }
 
